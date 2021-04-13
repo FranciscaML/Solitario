@@ -11,5 +11,5 @@ Dentro de la clase **Solitario**
 
 Dentro de la clase **Menu**
 
-1. Chequear que la opción es la correcta, utilizando la misma estrategia que para el chequeo de una opción correcta.
+1. Chequear que la opción es la correcta, utilizando la misma estrategia que para el chequeo de una opción correcta. 
 
