@@ -43,6 +43,10 @@ public class Solitario {
             opcion = menu.getOpcion();
 
             InOut inOut = new InOut();
+
+            //POR HACER:
+            // Plantear el resto de opciones salvo la opción 9 (Salir)
+
             switch (opcion) {
                 case 1:
                     primario.moverA(secundario);

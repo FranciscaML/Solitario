@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * Gestión del menu de opciones
+ *
+ */
 public class Menu {
 
     public void mostrar() {
@@ -16,6 +20,7 @@ public class Menu {
     }
 
     public int getOpcion() {
+        // POR HACER:
         // Falta comprobar que la opción esté entre 1 y 9
         InOut inOut = new InOut();
         return inOut.inInt();
