@@ -2,7 +2,6 @@ package com.company;
 
 /**
  * Clase principal Solitario
- *
  */
 public class Solitario {
 
@@ -20,13 +19,13 @@ public class Solitario {
         this.secundario = new Secundario();
 
         this.columnas = new Columna[NUM_COLUMNAS];
-        for (int i = 0; i< columnas.length;i++) {
-            this.columnas[i] = new Columna(i+1, primario);
+        for (int i = 0; i < columnas.length; i++) {
+            this.columnas[i] = new Columna(i + 1, primario);
         }
 
         this.palos = new Palo[NUM_PALOS];
 
-        for (int i = 0; i < palos.length;i++) {
+        for (int i = 0; i < palos.length; i++) {
             this.palos[i] = new Palo();
         }
 
@@ -35,55 +34,69 @@ public class Solitario {
     private void jugar() {
         Menu menu = new Menu();
         int opcion;
-
         do {
             this.mostrar();
-
             menu.mostrar();
             opcion = menu.getOpcion();
-
-            InOut inOut = new InOut();
-
-            //POR HACER:
-            // Plantear el resto de opciones salvo la opción 9 (Salir)
-
             switch (opcion) {
                 case 1:
                     primario.moverA(secundario);
                     break;
                 case 2:
-                    // POR HACER:
-                    // 1. Compartir con el código del caso 3 y siguientes en un método "recogerColumna" o similar
-                    // 2. Chequear que el número de columna es correcto
-                    // 3. Utilizar constante NUM_COLUMNAS en mensaje mostrado
-                    inOut.out("¿A qué columna?[1-7]:");
-                    int numColumna = inOut.inInt();
-                    secundario.moverA(columnas[numColumna - 1]);
+                    secundario.moverA(this.recogerColumna("A"));
                     break;
                 case 3:
-                    inOut.out("¿De qué columna?[1-7]:");
-                    int colOrigen = inOut.inInt();
-                    inOut.out("¿A qué columna?[1-7]:");
-                    int colDestino = inOut.inInt();
-                    columnas[colOrigen - 1].moverA(columnas[colDestino - 1]);
+                    this.recogerColumna("De").moverA(this.recogerColumna("A"));
                     break;
                 case 4:
+                    this.recogerColumna("De").moverA(this.recogerPalo("A"));
                     break;
                 case 5:
+                    secundario.moverA(this.recogerPalo("A"));
                     break;
-                case 6:
+               case 6:
+                    this.recogerPalo("De").moverA(this.recogerColumna("A"));
                     break;
                 case 7:
+                    this.recogerColumna("De").voltear();
                     break;
                 case 8:
+                    secundario.volcarA(primario);
                     break;
                 case 9:
                     break;
             }
-
         } while (opcion != 9);
+    }
 
+    private Palo recogerPalo(String prefijo) {
+        InOut InOut = new InOut();
+        int numPalo;
+        boolean error;
+        do {
+            InOut.out("¿" + prefijo + " qué palo? [1-" + NUM_PALOS + "]: ");
+            numPalo = InOut.inInt();
+            error = !new Intervalo(1, NUM_PALOS).incluye(numPalo);
+            if (error) {
+                InOut.out("¡¡¡Error!!! Debe ser un número entre 1 y " + NUM_PALOS);
+            }
+        } while (error);
+        return palos[numPalo - 1];
+    }
 
+    private Columna recogerColumna(String prefijo) {
+        InOut InOut = new InOut();
+        int numColumna;
+        boolean error;
+        do {
+            InOut.out("¿" + prefijo + " qué columna? [1-" + NUM_COLUMNAS + "]: ");
+            numColumna = InOut.inInt();
+            error = !new Intervalo(1, NUM_COLUMNAS).incluye(numColumna);
+            if (error) {
+                InOut.out("¡¡¡Error!!! Debe ser un número entre 1 y " + NUM_COLUMNAS);
+            }
+        } while (error);
+        return columnas[numColumna - 1];
     }
 
     private void mostrar() {
@@ -94,7 +107,7 @@ public class Solitario {
             columnas[i].mostrar();
         }
 
-        for (int i = 0; i < palos.length;i++) {
+        for (int i = 0; i < palos.length; i++) {
             palos[i].mostrar();
         }
     }

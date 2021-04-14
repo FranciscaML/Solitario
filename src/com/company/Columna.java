@@ -10,4 +10,10 @@ public class Columna {
 
     public void moverA(Columna columna) {
     }
+
+    public void moverA(Palo palo) {
+    }
+
+    public void voltear() {
+    }
 }
