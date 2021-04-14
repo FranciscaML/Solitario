@@ -13,4 +13,7 @@ public class Secundario {
 
     public void volcarA(Primario primario) {
     }
+
+    public void poner(Carta carta) {
+    }
 }

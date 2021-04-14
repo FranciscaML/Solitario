@@ -10,8 +10,8 @@ public class Solitario {
     private Columna[] columnas;
     private Palo[] palos;
 
-    private static final int NUM_COLUMNAS = 7;
-    private static final int NUM_PALOS = 4;
+    public static final int NUM_COLUMNAS = 7;
+    public static final int NUM_PALOS = 4;
 
     public Solitario() {
 
