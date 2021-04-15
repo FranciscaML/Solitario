@@ -35,7 +35,7 @@ public class Menu {
             InOut.out("\n¿Opción? [1-9]: ");
             opcion = InOut.inInt();
             error = !OPCIONES.incluye(opcion);
-            if (error){
+            if (error) {
                 InOut.out("¡¡¡Error!!! La opción debe ser entre 1 y 9");
             }
         } while (error);
