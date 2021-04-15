@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * Clase que representa a la pila de cartas de donde se reparten las cartas
+ */
+
 import java.util.Random;
 
 public class Primario {

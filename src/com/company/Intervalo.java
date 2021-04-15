@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * Intervalo de valores
+ */
 public class Intervalo {
 
 	private double inferior;
