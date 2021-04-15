@@ -2,6 +2,7 @@ package com.company;
 
 public class Secundario {
 
+
     public void mostrar() {
     }
 
