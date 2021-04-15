@@ -39,6 +39,7 @@ public class Menu {
                 InOut.out("¡¡¡Error!!! La opción debe ser entre 1 y 9");
             }
         } while (error);
+
         return opcion;
     }
 }
